@@ -1,3 +1,8 @@
+// (function ($) {
+//
+// })
+
+
 $(document).ready(function () {
 
     $('body').on('click', '[href*="#anchor"]', function(e){

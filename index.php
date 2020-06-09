@@ -31,7 +31,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
                             <h3><?php the_title(); ?></h3>
                         </div>
 
-                        <div class="accommodation__descr-descr">
+                        <div class="accommodation__descr-text">
                             <?php the_content(); ?>
                         </div>
 
@@ -68,7 +68,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
                             <h3><?php the_title(); ?></h3>
                         </div>
 
-                        <div class="accommodation__descr-descr">
+                        <div class="accommodation__descr-text">
                             <?php the_content(); ?>
                         </div>
 
@@ -119,7 +119,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
                             <h3><?php the_title(); ?></h3>
                         </div>
 
-                        <div class="accommodation__descr-descr">
+                        <div class="accommodation__descr-text">
                             <?php the_content(); ?>
                         </div>
 
@@ -156,7 +156,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
                             <h3><?php the_title(); ?></h3>
                         </div>
 
-                        <div class="accommodation__descr-descr">
+                        <div class="accommodation__descr-text">
                             <?php the_content(); ?>
                         </div>
 
@@ -177,6 +177,8 @@ $currentUrl = get_template_directory_uri() . '/img/';
     endwhile;
     wp_reset_postdata();
     ?>
+
+</section>
 
 <section class="service">
     <div class="container">
@@ -227,83 +229,72 @@ $currentUrl = get_template_directory_uri() . '/img/';
     </div> <!--container-->
 </section>
 
-<section class="events">
-    <div class="section-title-wrap">
-        <div class="container">
-            <h2 class="section-title">Мероприятия</h2>
-        </div>
-    </div>
-
-    <div class="accommodation__item">
-        <div class="accommodation__descr">
-            <div class="accommodation__descr-content left-side">
-
-                <div class="accommodation__img-mobile">
-                    <img src="<?php echo $currentUrl?>restaurant_bg.jpg" alt=""/>
-                </div>
-                <div class="item-title">
-                    <span class="pre-title">Мероприятия</span>
-                    <h3 class="item-title">Корпоративы и бизнес ивенты</h3>
-                </div>
-
-                <div class="accommodation__descr-descr">
-                    <p>«Бабушкин Сад» представляет Вам свои банкетные залы и террасы под проведение мероприятий
-                        любого формата: свадеб, дней рождений, юбилеев, тематических вечеринок, фуршетов,
-                        корпоративных мероприятий. Разнообразие залов и их интерьеров обеспечит успех события любой
-                        тематики и масштаба!
-
-                    </p>
-                </div>
+    <section class="events">
+        <div class="section-title-wrap">
+            <div class="container">
+                <h2 class="section-title">Мероприятия</h2>
             </div>
         </div>
 
-        <div class="accommodation__img" data-parallax="scroll" data-image-src="<?php echo $currentUrl?>restaurant_bg.jpg">
-        </div>
-    </div> <!--accommodation__item-->
+        <?php $events_list = new WP_Query(array('category_name' => 'events_list', 'order' => 'ASC'));
+        $idx = 1;
+        while ($events_list->have_posts()) :
 
-    <div class="accommodation__item">
-        <div class="accommodation__img" data-parallax="scroll" data-image-src="<?php echo $currentUrl?>conferenz-service_bg.jpg">
-        </div>
-        <div class="accommodation__descr">
-            <div class="accommodation__descr-content right-side">
+            if ($idx % 2 == 1) :
+                $events_list->the_post(); ?>
+                <div class="accommodation__item">
+                    <div class="accommodation__descr">
+                        <div class="accommodation__descr-content left-side">
 
-                <div class="accommodation__img-mobile">
-                    <img src="<?php echo $currentUrl?>conferenz-service_bg.jpg" alt=""/>
-                </div>
-                <div class="item-title">
-                    <span class="pre-title">Мероприятия</span>
-                    <h3 class="item-title">Праздники и торжества</h3>
-                </div>
+                            <div class="accommodation__img-mobile">
+                                <img src="<?php echo get_the_post_thumbnail_url( $id, 'full' ); ?>" alt=""/>
+                            </div>
 
-                <div class="accommodation__descr-descr">
-                    <p>Доверьте организацию вашего праздничного мероприятия нашим специалистам. Персональный менеджер поможет определиться с максимально комфортным размещением гостей и проконтролирует работу всех служб в течение праздника.</p>
-                </div>
-            </div>
-        </div>
-    </div> <!--accommodation__item-->
+                            <div class="item-title">
+                                <span class="pre-title">Мероприятия</span>
+                                <h3><?php the_title(); ?></h3>
+                            </div>
 
-    <div class="accommodation__item">
-        <div class="accommodation__descr">
-            <div class="accommodation__descr-content left-side">
-                <div class="accommodation__img-mobile">
-                    <img src="<?php echo $currentUrl?>children-relax.jpg" alt=""/>
-                </div>
-                <div class="item-title">
-                    <span class="pre-title">Мероприятия</span>
-                    <h3 class="item-title">Детский отдых</h3>
-                </div>
+                            <div class="accommodation__descr-text">
+                                <?php the_content(); ?>
+                            </div>
+                        </div> <!--accommodation__descr-content-->
+                    </div> <!--accommodation__descr-->
 
-                <div class="accommodation__descr-descr">
-                    <p>Только незабываемые каникулы вместе с новыми друзьями могут быть лучшим воспоминанием детства! Заряд красками ярких приключений, вечеринок, увлекательных конкурсов, познавательных квестов, интересных мастер-классов и спортивных секций станут ярким впечатлением каждого ребенка.
-                    </p>
-                </div>
-            </div>
-        </div>
+                    <div class="accommodation__img" data-parallax="scroll"
+                         data-image-src="<?php echo get_the_post_thumbnail_url( $id, 'full' ); ?>">
+                    </div>
 
-        <div class="accommodation__img" data-parallax="scroll" data-image-src="<?php echo $currentUrl?>children-relax.jpg">
-        </div>
-    </div> <!--accommodation__item-->
-</section>
+                </div> <!--accommodation__item-->
+            <?php else : $events_list->the_post(); ?>
+
+                <div class="accommodation__item">
+                    <div class="accommodation__img" data-parallax="scroll"
+                         data-image-src="<?php echo get_the_post_thumbnail_url($id, 'full'); ?>">
+                    </div>
+                    <div class="accommodation__descr">
+                        <div class="accommodation__descr-content right-side">
+                            <div class="accommodation__img-mobile">
+                                <img src="<?php echo get_the_post_thumbnail_url($id, 'full'); ?>" alt=""/>
+                            </div>
+                            <div class="item-title">
+                                <span class="pre-title">Мероприятия</span>
+                                <h3 class="item-title"><?php the_title(); ?></h3>
+                            </div>
+
+                            <div class="accommodation__descr-text">
+                                <?php the_content(); ?>
+                            </div>
+                        </div> <!--accommodation__descr-content-->
+                    </div> <!--accommodation__descr-->
+                </div> <!--accommodation__item-->
+
+            <?php endif;
+            $idx++;
+        endwhile;
+        wp_reset_postdata();
+        ?>
+    </section> <!--events-->
 
 <section class="gallery" id="anchor4">
     <div class="container">
@@ -316,36 +307,28 @@ $currentUrl = get_template_directory_uri() . '/img/';
         while ($galleryPost->have_posts()) :
             $galleryPost->the_post(); ?>
             <?php the_content(); ?>
-
-
         <?php endwhile;
         wp_reset_postdata();
         ?>
     </div>
 </section>
 
-<!--<section class="advantages">-->
-<!--    <div class="container">-->
-<!--        <h2 class="section-title">Преимущества</h2>-->
-<!--    </div>-->
-<!--</section>-->
-
 <section class="address" id="anchor5">
     <div class="address-content">
         <span class="address-item"><i class="fas fa-map-marker-alt"></i>ул. Садовая 2, с. Мрия, Киевская обл.</span>
         <span class="address-item"><i class="fas fa-phone"></i>
-             <a href="tel:(067) 445-60-90" class="section-phone">(067) 445-60-90</a>
+             <a href="tel:<?php the_field('phone_contacts', 2858);?>" class="section-phone"><?php the_field('phone_contacts', 2858);?></a>
         </span>
 
         <span class="address-item"><i class="fas fa-envelope"></i>
-            <a href="mailto:test@gmail.com" class="section-phone">test@gmail.com</a>
+            <a href="mailto:<?php the_field('mail_contacts', 2858);?>" class="section-phone"><?php the_field('mail_contacts', 2858);?></a>
         </span>
 
 
         <span class="address-item">
             <span class="address-item__social">
-                <a href="https://www.facebook.com/Babushkinsad/" target="_blank"><i class="fab fa-facebook-square"></i></a>
-                <a href="https://www.instagram.com/babyshkin_sad/" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="<?php the_field('facebook_contacts', 2858);?>" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                <a href="<?php the_field('Instagram_contacts', 2858);?>" target="_blank"><i class="fab fa-instagram"></i></a>
             </span>
         </span>
         <div class="complex-map">

@@ -2994,7 +2994,7 @@ strong {
   background-color: #fff;
 }
 
-.accommodation__descr-descr {
+.accommodation__descr-text {
   font-family: 'Opensans', sans-serif;
   font-size: 16px;
   line-height: 32px;
@@ -3552,7 +3552,7 @@ strong {
             align-items: flex-start;
     height: 1030px;
   }
-  .accommodation__descr-descr {
+  .accommodation__descr-text {
     text-align: center;
   }
   .accommodation__descr-price {

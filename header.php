@@ -29,8 +29,8 @@
         <div class="menu-mobile">
             <div class="menu-mobile__top">
                     <span class="address-item__social">
-                        <a href="https://www.facebook.com/Babushkinsad/" target="_blank"><i class="fab fa-facebook-square"></i></a>
-                        <a href="https://www.instagram.com/babyshkin_sad/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="<?php the_field('facebook_contacts', 2858);?>" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                        <a href="<?php the_field('Instagram_contacts', 2858);?>" target="_blank"><i class="fab fa-instagram"></i></a>
                     <!--     <a href="https://www.booking.com/hotel/ua/babushkin-sad/" target="_blank"><i class="fas fa-book"></i></a>-->
                     </span>
 
@@ -93,19 +93,17 @@
 
             <?php else : ?>
             <div class="header__banner-descr">
-<!--                --><?php //$headerContent = new WP_Query( array( 'category_name' => 'header_text' ) );
-//
-//                while ($headerContent->have_posts()) :
-//                    $headerContent->the_post();?>
-<!---->
-<!--                    <h1>--><?php //the_title();?><!--</h1>-->
-<!---->
-<!--                    --><?php //the_content();?>
-<!--                --><?php //endwhile;
-//                wp_reset_postdata();
-//                ?>
-            <h1>КАЖДОМУ РАД «БАБУШКИН САД»</h1>
-                <p>Тихий дачный отдых на природе всего в нескольких минутах езды от города не оставит вас равнодушным. Уютный загородный комплекс «Бабушкин Сад» — место, которое для многих гостей стало знакомым и родным. Это идеальный повод для любого вида отдыха, сочетающее в себе как семейную атмосферу, так деловой досуг.</p>
+                <?php $headerContent = new WP_Query( array( 'category_name' => 'header_text' ) );
+
+                while ($headerContent->have_posts()) :
+                    $headerContent->the_post();?>
+
+                    <h1><?php the_title();?></h1>
+
+                    <?php the_content();?>
+                <?php endwhile;
+                wp_reset_postdata();
+                ?>
             </div> <!--header__banner-descr-->
         <?php endif; ?>
         </div> <!--container-->
