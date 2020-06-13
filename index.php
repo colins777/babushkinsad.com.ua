@@ -206,7 +206,6 @@ $currentUrl = get_template_directory_uri() . '/img/';
         </div> <!--service-items-->
 
         <?php else : $services->the_post();?>
-
         <div class="service-items">
             <div class="service-items__descr">
                 <span class="pre-title">БИЗНЕС И МЕРОПРИЯТИЯ</span>
