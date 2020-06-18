@@ -126,10 +126,29 @@ $currentUrl = get_template_directory_uri() . '/img/';
                         <span class="accommodation__descr-phone">
                         <a href="tel:<?php the_field('phone_number');?>" class="section-phone"><img src="<?php echo $currentUrl?>icons/phone-square-solid.svg" alt="телефон" /><?php the_field('phone_number');?></a>
                     </span>
-                        <div class="accommodation__descr-button">
-                            <a href="<?php echo get_site_url() . '/booking' ?>" class="button">Забронировать</a>
-                        </div>
 
+
+                        <?php
+                            $currentPostId = get_the_id();
+
+                            if ($currentPostId === 2829) : ?>
+                                <div class="accommodation__descr-button">
+                                    <a href="#menu-popup" class="button open-popup-link" id="menu-button">Меню ресторану</a>
+
+                                    <div id="menu-popup" class="white-popup mfp-hide">
+                                        <?php
+                                        echo do_shortcode('[Best_Wordpress_Gallery id="6" gal_title="Restr menu"]');
+                                        ?>
+
+                                    </div>
+                                </div>
+
+                            <?php else : ?>
+
+                                <div class="accommodation__descr-button">
+                                    <a href="<?php echo get_site_url() . '/booking' ?>" class="button">Забронировать</a>
+                                </div>
+                                <?php  endif; ?>
                     </div> <!--accommodation__descr-content-->
                 </div> <!--accommodation__descr-->
 
@@ -182,7 +201,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
 
 <section class="service">
     <div class="container">
-        <h2 class="section-title" id="anchor3">Услуги</h2>
+        <h2 class="section-title" id="anchor3">Послуги</h2>
 
         <?php $services = new WP_Query(array('category_name' => 'services', 'order' => 'ASC'));
         $idx = 1;
@@ -201,7 +220,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
                 <div class="service-items__text">
                     <?php the_content(); ?>
                 </div>
-                <a href="<?php echo get_site_url(). '/booking'?>" class="button">Забронировать</a>
+<!--                <a href="--><?php //echo get_site_url(). '/booking'?><!--" class="button">Забронировать</a>-->
             </div> <!--service-items__descr-->
         </div> <!--service-items-->
 
@@ -213,7 +232,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
                 <div class="service-items__text">
                     <?php the_content(); ?>
                 </div>
-                <a href="<?php echo get_site_url(). '/booking'?>" class="button">Забронировать</a>
+<!--                <a href="--><?php //echo get_site_url(). '/booking'?><!--" class="button">Забронировать</a>-->
             </div> <!--service-items__descr-->
 
             <div class="service-items__img">

@@ -3422,6 +3422,15 @@ strong {
   top: 12px;
 }
 
+.white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px;
+  width: auto;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
 @media screen and (min-width: 769px) {
   .sandwich {
     display: none;
