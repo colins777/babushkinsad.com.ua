@@ -3095,7 +3095,6 @@ strong {
 
 .service-items__text {
   text-align: center;
-  padding-bottom: 40px;
 }
 
 .gallery-wrap {
@@ -3250,6 +3249,17 @@ strong {
   color: #fff;
   text-decoration: none;
   background: #ac8b51;
+}
+
+.button--service {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.image-price {
+  max-width: 600px;
+  height: auto;
+  width: 100%;
 }
 
 .logo img {
@@ -3560,6 +3570,7 @@ strong {
         -ms-flex-align: start;
             align-items: flex-start;
     height: auto;
+    margin-top: 52px;
   }
   .accommodation__descr-text {
     text-align: center;

@@ -8,7 +8,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
 
     <div class="section-title-wrap">
         <div class="container">
-            <h2 class="section-title">Проживание</h2>
+            <h2 class="section-title">Проживання</h2>
         </div>
     </div>
 
@@ -27,7 +27,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
                         </div>
 
                         <div class="item-title">
-                            <span class="pre-title">Проживание</span>
+                            <span class="pre-title">Проживання</span>
                             <h3><?php the_title(); ?></h3>
                         </div>
 
@@ -36,10 +36,10 @@ $currentUrl = get_template_directory_uri() . '/img/';
                         </div>
 
                         <span class="accommodation__descr-price">
-                            <span class="price-title">Цена:</span><span class="price-amount"><?php the_field('price');?></span>
+                            <span class="price-title">Ціна:</span><span class="price-amount"><?php the_field('price');?></span>
                         </span>
                         <div class="accommodation__descr-button">
-                            <a href="<?php echo get_site_url() . '/booking' ?>" class="button">Забронировать</a>
+                            <a href="<?php echo get_site_url() . '/booking' ?>" class="button">Забронювати</a>
                         </div>
 
                     </div> <!--accommodation__descr-content-->
@@ -64,7 +64,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
                             <img src="<?php echo get_the_post_thumbnail_url( $id, 'full' ); ?>" alt=""/>
                         </div>
                         <div class="item-title">
-                            <span class="pre-title">Проживание</span>
+                            <span class="pre-title">Проживання</span>
                             <h3><?php the_title(); ?></h3>
                         </div>
 
@@ -73,7 +73,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
                         </div>
 
                         <span class="accommodation__descr-price">
-                            <span class="price-title">Цена:</span>
+                            <span class="price-title">Ціна:</span>
                                 <span class="price-amount"><?php the_field('price');?></span>
                         </span>
 
@@ -94,7 +94,6 @@ $currentUrl = get_template_directory_uri() . '/img/';
 
 <section class="restaurant">
     <div class="section-title-wrap">
-
         <div class="container">
             <h2 class="section-title">Ресторан</h2>
         </div>
@@ -124,7 +123,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
                         </div>
 
                         <span class="accommodation__descr-phone">
-                        <a href="tel:<?php the_field('phone_number');?>" class="section-phone"><img src="<?php echo $currentUrl?>icons/phone-square-solid.svg" alt="телефон" /><?php the_field('phone_number');?></a>
+                        <a href="tel:<?php the_field('phone_number', $post->ID);?>" class="section-phone"><img src="<?php echo $currentUrl?>icons/phone-square-solid.svg" alt="телефон" /><?php the_field('phone_number');?></a>
                     </span>
 
 
@@ -146,7 +145,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
                             <?php else : ?>
 
                                 <div class="accommodation__descr-button">
-                                    <a href="<?php echo get_site_url() . '/booking' ?>" class="button">Забронировать</a>
+                                    <a href="<?php echo get_site_url() . '/booking' ?>" class="button">Забронювати</a>
                                 </div>
                                 <?php  endif; ?>
                     </div> <!--accommodation__descr-content-->
@@ -180,11 +179,11 @@ $currentUrl = get_template_directory_uri() . '/img/';
                         </div>
 
                         <span class="accommodation__descr-phone">
-                        <a href="tel:<?php the_field('phone_number');?>" class="section-phone"><img src="<?php echo $currentUrl?>icons/phone-square-solid.svg" alt="телефон" /><?php the_field('phone_number');?></a>
+                        <a href="tel:<?php the_field('phone_number', $post->ID);?>" class="section-phone"><img src="<?php echo $currentUrl?>icons/phone-square-solid.svg" alt="телефон" /><?php the_field('phone_number');?></a>
                     </span>
 
                         <div class="accommodation__descr-button">
-                            <a href="<?php echo get_site_url() . '/booking' ?>" class="button">Забронировать</a>
+                            <a href="<?php echo get_site_url() . '/booking' ?>" class="button">Забронювати</a>
                         </div>
                     </div>
                 </div> <!--descr-->
@@ -215,11 +214,29 @@ $currentUrl = get_template_directory_uri() . '/img/';
                 <img src="<?php echo get_the_post_thumbnail_url( $id, 'full' ); ?>" alt=""/>
             </div> <!--service-items__img-->
             <div class="service-items__descr">
-                <span class="pre-title">Услуги</span>
+                <span class="pre-title">Послуги</span>
                 <h3 class="item-title"><?php the_title(); ?></h3>
                 <div class="service-items__text">
                     <?php the_content(); ?>
                 </div>
+
+                <?php $servicePrice = get_field('price_image', $post->ID); if ($servicePrice != false) :?>
+                    <div class="accommodation__descr-button">
+                        <a href="#menu-popup1" class="button button--service open-popup-link">Ціна</a>
+                        <div id="menu-popup1" class="white-popup mfp-hide">
+                            <img src="<?php the_field('price_image'); ?>" alt="">
+                        </div>
+                    </div>
+                <?php endif;?>
+
+                <?php $phoneNumber = get_field('phone_number');
+                if ($phoneNumber != false) : ?>
+                    <span class="accommodation__descr-phone">
+                        <a href="tel:<?php the_field('phone_number', $post->ID); ?>" class="section-phone"><img
+                                    src="<?php echo $currentUrl ?>icons/phone-square-solid.svg"
+                                    alt="телефон"/><?php the_field('phone_number'); ?></a>
+                    </span>
+                <?php endif; ?>
 <!--                <a href="--><?php //echo get_site_url(). '/booking'?><!--" class="button">Забронировать</a>-->
             </div> <!--service-items__descr-->
         </div> <!--service-items-->
@@ -227,11 +244,30 @@ $currentUrl = get_template_directory_uri() . '/img/';
         <?php else : $services->the_post();?>
         <div class="service-items">
             <div class="service-items__descr">
-                <span class="pre-title">БИЗНЕС И МЕРОПРИЯТИЯ</span>
+                <span class="pre-title">Послуги</span>
                 <h3 class="item-title"><?php the_title(); ?></h3>
                 <div class="service-items__text">
                     <?php the_content(); ?>
                 </div>
+
+                <?php $servicePrice = get_field('price_image', $post->ID); if ($servicePrice != false) :?>
+                    <div class="accommodation__descr-button">
+                        <a href="#menu-popup1" class="button button--service open-popup-link">Ціна</a>
+                        <div id="menu-popup1" class="white-popup mfp-hide">
+                            <img src="<?php the_field('price_image'); ?>" class="image-price" alt="">
+                        </div>
+                    </div>
+                <?php endif;?>
+
+                <?php $phoneNumber = get_field('phone_number');
+                if ($phoneNumber != false) : ?>
+                    <span class="accommodation__descr-phone">
+                        <a href="tel:<?php the_field('phone_number', $post->ID); ?>" class="section-phone"><img
+                                    src="<?php echo $currentUrl ?>icons/phone-square-solid.svg"
+                                    alt="телефон"/><?php the_field('phone_number'); ?></a>
+                    </span>
+                <?php endif; ?>
+
 <!--                <a href="--><?php //echo get_site_url(). '/booking'?><!--" class="button">Забронировать</a>-->
             </div> <!--service-items__descr-->
 
@@ -250,7 +286,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
     <section class="events">
         <div class="section-title-wrap">
             <div class="container">
-                <h2 class="section-title">Мероприятия</h2>
+                <h2 class="section-title">Міроприємства</h2>
             </div>
         </div>
 
@@ -269,13 +305,21 @@ $currentUrl = get_template_directory_uri() . '/img/';
                             </div>
 
                             <div class="item-title">
-                                <span class="pre-title">Мероприятия</span>
+                                <span class="pre-title">Міроприємства</span>
                                 <h3><?php the_title(); ?></h3>
                             </div>
 
                             <div class="accommodation__descr-text">
                                 <?php the_content(); ?>
                             </div>
+                            <?php $phoneNumber = get_field('phone_number');
+                            if ($phoneNumber != false) : ?>
+                                <span class="accommodation__descr-phone">
+                        <a href="tel:<?php the_field('phone_number', $post->ID); ?>" class="section-phone"><img
+                                    src="<?php echo $currentUrl ?>icons/phone-square-solid.svg"
+                                    alt="телефон"/><?php the_field('phone_number'); ?></a>
+                    </span>
+                            <?php endif; ?>
                         </div> <!--accommodation__descr-content-->
                     </div> <!--accommodation__descr-->
 
@@ -296,13 +340,21 @@ $currentUrl = get_template_directory_uri() . '/img/';
                                 <img src="<?php echo get_the_post_thumbnail_url($id, 'full'); ?>" alt=""/>
                             </div>
                             <div class="item-title">
-                                <span class="pre-title">Мероприятия</span>
+                                <span class="pre-title">Міроприємства</span>
                                 <h3 class="item-title"><?php the_title(); ?></h3>
                             </div>
 
                             <div class="accommodation__descr-text">
                                 <?php the_content(); ?>
                             </div>
+                            <?php $phoneNumber = get_field('phone_number');
+                            if ($phoneNumber != false) : ?>
+                                <span class="accommodation__descr-phone">
+                        <a href="tel:<?php the_field('phone_number', $post->ID); ?>" class="section-phone"><img
+                                    src="<?php echo $currentUrl ?>icons/phone-square-solid.svg"
+                                    alt="телефон"/><?php the_field('phone_number'); ?></a>
+                    </span>
+                            <?php endif; ?>
                         </div> <!--accommodation__descr-content-->
                     </div> <!--accommodation__descr-->
                 </div> <!--accommodation__item-->
@@ -316,7 +368,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
 
 <section class="gallery" id="anchor4">
     <div class="container">
-        <h2 class="section-title">Галерея комплекса</h2>
+        <h2 class="section-title">Галерея комплексу</h2>
     </div>
 
     <div class="gallery-wrap">
@@ -333,7 +385,8 @@ $currentUrl = get_template_directory_uri() . '/img/';
 
 <section class="address" id="anchor5">
     <div class="address-content">
-        <span class="address-item"><i class="fas fa-map-marker-alt"></i>ул. Садовая 2, с. Мрия, Киевская обл.</span>
+        <span class="address-item"><i class="fas fa-map-marker-alt"></i>вул. Садова 2, с. Мрія, Київська обл.</span>
+        <h3>Гаряча лінія</h3>
         <span class="address-item"><i class="fas fa-phone"></i>
              <a href="tel:<?php the_field('phone_contacts', 2858);?>" class="section-phone"><?php the_field('phone_contacts', 2858);?></a>
         </span>
@@ -350,7 +403,7 @@ $currentUrl = get_template_directory_uri() . '/img/';
             </span>
         </span>
         <div class="complex-map">
-            <a href="http://www.babushkinsad.com.ua/wp-content/uploads/2020/06/map-2020.jpg" class="button" target="_blank">Карта комплекса</a>
+            <a href="http://www.babushkinsad.com.ua/wp-content/uploads/2020/06/map-2020.jpg" class="button" target="_blank">Карта комплексу</a>
         </div>
 
     </div>

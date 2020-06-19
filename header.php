@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <!-- <base href="/"> -->
 
-    <title>Бабушкин сад - загородный комплекс</title>
+    <title>Бабусин сад - загородній комплекс</title>
     <meta name="description" content="">
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,11 +47,11 @@
 
             </div>
             <ul class="menu__list">
-                <li class="menu__list-item"><a href="#anchor1" class="menu__list-link">Проживание</a></li>
+                <li class="menu__list-item"><a href="#anchor1" class="menu__list-link">Проживання</a></li>
                 <li class="menu__list-item"><a href="#anchor2" class="menu__list-link">Ресторан</a></li>
-                <li class="menu__list-item"><a href="#anchor3" class="menu__list-link">Услуги</a></li>
+                <li class="menu__list-item"><a href="#anchor3" class="menu__list-link">Послуги</a></li>
                 <li class="menu__list-item"><a href="#anchor4" class="menu__list-link">Галерея</a></li>
-                <li class="menu__list-item"><a href="#anchor5" class="menu__list-link">Контакты</a></li>
+                <li class="menu__list-item"><a href="#anchor5" class="menu__list-link">Контакти</a></li>
             </ul>
         </div> <!--menu-mobile-->
         <div class="container">
@@ -63,15 +63,15 @@
                 <?php if (!is_page('booking')) :?>
                 <div class="menu">
                     <ul class="menu__list">
-                        <li class="menu__list-item"><a href="#anchor1" class="menu__list-link">Проживание</a></li>
+                        <li class="menu__list-item"><a href="#anchor1" class="menu__list-link">Проживання</a></li>
                         <li class="menu__list-item"><a href="#anchor2" class="menu__list-link">Ресторан</a></li>
-                        <li class="menu__list-item"><a href="#anchor3" class="menu__list-link">Услуги</a></li>
+                        <li class="menu__list-item"><a href="#anchor3" class="menu__list-link">Послуги</a></li>
                         <li class="menu__list-item"><a href="#anchor4" class="menu__list-link">Галерея</a></li>
-                        <li class="menu__list-item"><a href="#anchor5" class="menu__list-link">Контакты</a></li>
+                        <li class="menu__list-item"><a href="#anchor5" class="menu__list-link">Контакти</a></li>
                     </ul>
                 </div>
                 <?php endif;?>
-                <a href="<?php echo get_site_url(). '/booking'?>" class="button">Забронировать</a>
+                <a href="<?php echo get_site_url(). '/booking'?>" class="button">Забронювати</a>
 
                 <div class="sandwich">
                     <div class="sandwich__line sandwich__line--top"></div>
