@@ -43,3 +43,8 @@ ExpiresByType application/xhtml+xml "access plus 600 seconds"
 AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/css text/javascript application/javascript application/x-javascript
 
 </ifModule>
+
+post_max_size 128M
+memory_limit 256M
+max_input_time 210
+max_execution_time 200

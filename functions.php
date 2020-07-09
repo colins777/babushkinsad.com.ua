@@ -6,7 +6,6 @@ function my_custom_scripts()
     wp_enqueue_script('minJs', get_template_directory_uri() . '/js/scripts.min.js');
     wp_enqueue_script('googleMap', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyB6fQXBeAHEcHl8Fcq_hn1qUUj8AYPI3iA');
 
-
     wp_enqueue_style('slick-slider-css', get_template_directory_uri() . '/style.css');
 
 }
@@ -34,3 +33,8 @@ add_filter('wpcf7_form_elements', function($content) {
 
     return $content;
 });
+
+
+@ini_set( 'upload_max_size' , '200M' );
+@ini_set( 'post_max_size', '200M');
+@ini_set( 'max_execution_time', '300' );

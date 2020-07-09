@@ -58,15 +58,23 @@ $(document).ready(function () {
                     {elementType: 'geometry', stylers: [{color: '#edecec'}]}, //main bg
                     {elementType: 'labels.text.stroke', stylers: [{color: '#DFE7FF'}]}, //name of cities
                     {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+
                     {
                         featureType: 'administrative.locality',
                         elementType: 'labels.text.fill',
                         stylers: [{color: '#746855'}]
                     },
                     {
+
+                        //titles of markers
                         featureType: 'poi',
-                        elementType: 'labels.text.fill',
-                        stylers: [{color: '#000000'}]
+                        //show other default markers
+                        //elementType: 'labels.text.fill',
+                        stylers: [
+                            {
+                                "visibility": "off"
+                            }
+                        ]
                     },
                     {
                         featureType: 'poi.park',
@@ -121,24 +129,24 @@ $(document).ready(function () {
                     {
                         featureType: 'water',
                         elementType: 'geometry',
-                        stylers: [{color: '#ffffff'}]
+                        stylers: [{"visibility": "on"}]
                     },
                     {
                         featureType: 'water',
                         elementType: 'labels.text.fill',
-                        stylers: [{color: '#f5f5f5'}]
+                        stylers: [{"visibility": "on"}]
                     },
                     {
                         featureType: 'water',
                         elementType: 'labels.text.stroke',
-                        stylers: [{color: '#f5f5f5'}]
-                    }
+                        stylers: [{"visibility": "on"}]
+                    },
+
                 ]});
 
-        var iconBase =
-            'https://developers.google.com/maps/documentation/javascript/examples/full/images/';
+        let iconBase = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/';
 
-        var icons = {
+        let icons = {
             parking: {
                 icon: iconBase + 'parking_lot_maps.png'
             },
@@ -148,12 +156,13 @@ $(document).ready(function () {
 
         };
 
-        var features = [
+        let features = [
             {
                 position: new google.maps.LatLng(50.43902809999999, 30.149361),
                 type: 'library'
             }
         ];
+
 
         // Create markers.
         for (var i = 0; i < features.length; i++) {
@@ -163,7 +172,12 @@ $(document).ready(function () {
                 map: map
             });
         };
-
+        google.maps.Map.prototype.clearMarkers = function() {
+            for(var i = 0; i < this.markers.length; i++){
+                this.markers[i].setMap(null);
+            }
+            this.markers = new Array();
+        };
 //open map after click on marker
         google.maps.event.addListener(marker, 'click', function() {
             window.location.href = 'https://maps.google.com/maps?ll=50.439028,30.149361&z=15&t=m&hl=uk-UA&gl=US&mapclient=apiv3&cid=3007503388140011142';
@@ -206,6 +220,10 @@ $(document).ready(function () {
         type:'inline',
         midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
     });
+
+    $('#date-picker').data('datepicker');
+
+
 
     fixedMenu();
     initMap();

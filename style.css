@@ -3001,7 +3001,7 @@ strong {
 }
 
 .accommodation__descr-button {
-  margin-top: 40px;
+  margin: 40px 0;
 }
 
 .accommodation__descr .price-title {
@@ -3159,7 +3159,15 @@ strong {
 }
 
 .complex-map {
-  margin-top: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  justify-content-margin-top: 20px;
 }
 
 #map {
@@ -3229,7 +3237,7 @@ strong {
   font-weight: bold;
 }
 
-.button {
+.button, input[type="submit"] {
   padding: 15px 30px;
   font-family: 'PlayfairDisplay', sans-serif;
   font-size: 16px;
@@ -3245,13 +3253,13 @@ strong {
   transition: box-shadow .4s,transform .4s,background .4s,border-color .4s,color .4s,-webkit-box-shadow .4s,-webkit-transform .4s;
 }
 
-.button:hover {
+.button:hover, .button input[type="submit"]:hover, input[type="submit"]:hover, input[type="submit"] input[type="submit"]:hover {
   color: #fff;
   text-decoration: none;
   background: #ac8b51;
 }
 
-.button--service {
+.button--service, input[type="submit"]--service {
   display: block;
   margin-bottom: 20px;
 }
@@ -3439,6 +3447,52 @@ strong {
   width: auto;
   max-width: 500px;
   margin: 20px auto;
+}
+
+.accommodation__descr-content {
+  z-index: 3;
+}
+
+.form-line {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-line span {
+  color: #ac8b51;
+  font-family: 'PlayfairDisplay';
+  font-weight: bold;
+}
+
+.form-line input, .form-line select {
+  width: 50%;
+  height: 40px;
+  margin-bottom: 10px;
+  background: transparent;
+  padding: 5px;
+  border: 1px solid #ac8b51;
+  color: #000;
+  outline: none;
+}
+
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+  color: #ac8b51;
+  border: 1px solid #ac8b51;
+  font-weight: bold;
 }
 
 @media screen and (min-width: 769px) {
@@ -3687,5 +3741,20 @@ strong {
         -ms-flex-align: center;
             align-items: center;
     z-index: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .service {
+    padding-top: 0;
+  }
+  .swimming {
+    margin-top: 58px;
+  }
+  .swimming .service-items__descr {
+    padding-bottom: 0;
+  }
+  .swimming .service-items__img {
+    margin-top: 20px;
   }
 }

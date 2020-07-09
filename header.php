@@ -31,7 +31,6 @@
                     <span class="address-item__social">
                         <a href="<?php the_field('facebook_contacts', 2858);?>" target="_blank"><i class="fab fa-facebook-square"></i></a>
                         <a href="<?php the_field('Instagram_contacts', 2858);?>" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <!--     <a href="https://www.booking.com/hotel/ua/babushkin-sad/" target="_blank"><i class="fas fa-book"></i></a>-->
                     </span>
 
                 <div class="close-button">
@@ -51,6 +50,7 @@
                 <li class="menu__list-item"><a href="#anchor2" class="menu__list-link">Ресторан</a></li>
                 <li class="menu__list-item"><a href="#anchor3" class="menu__list-link">Послуги</a></li>
                 <li class="menu__list-item"><a href="#anchor4" class="menu__list-link">Галерея</a></li>
+                <li class="menu__list-item"><a href="<?php echo get_site_url()?>/wp-content/uploads/2020/07/new_price_compressed.pdf" class="menu__list-link" target="_blank">Прайс</a></li>
                 <li class="menu__list-item"><a href="#anchor5" class="menu__list-link">Контакти</a></li>
             </ul>
         </div> <!--menu-mobile-->
@@ -67,6 +67,7 @@
                         <li class="menu__list-item"><a href="#anchor2" class="menu__list-link">Ресторан</a></li>
                         <li class="menu__list-item"><a href="#anchor3" class="menu__list-link">Послуги</a></li>
                         <li class="menu__list-item"><a href="#anchor4" class="menu__list-link">Галерея</a></li>
+                        <li class="menu__list-item"><a href="<?php echo get_site_url()?>/wp-content/uploads/2020/07/new_price_compressed.pdf" class="menu__list-link" target="_blank">Прайс</a></li>
                         <li class="menu__list-item"><a href="#anchor5" class="menu__list-link">Контакти</a></li>
                     </ul>
                 </div>
@@ -83,12 +84,11 @@
     </div>
 
 
-
     <div class="header__banner" data-parallax="scroll" data-image-src="<?php echo get_template_directory_uri() . '/img/header_bg.jpg'?>">
         <div class="container">
             <?php if (is_page('booking')) :?>
             <div class="header__banner-descr" style="background: rgba(255, 255, 255, 0.71);">
-                <?php echo do_shortcode ('[booking-form]') ?>
+                <?php echo do_shortcode('[contact-form-7 id="2956" title="Форма для бронювання"]')  ?>
             </div>
 
             <?php else : ?>
